@@ -43,26 +43,50 @@
 		</header>
 
 		<main>
-			<section class="hero">
+			<section class="hero aurora">
 				<div class="wrap">
 					<div>
 						<h1>
-							Грація, яку <em>неможливо</em> повторити
+							<span class="w" style="--i:0">Грація,</span>
+							<span class="w" style="--i:1">яку</span>
+							<span class="w shine" style="--i:2">неможливо</span>
+							<span class="w" style="--i:3">повторити</span>
 						</h1>
 						<p>Коти живуть поруч із людьми майже десять тисяч років і досі залишаються загадкою. Давайте роздивимося їх уважніше.</p>
 						<a class="btn" href="gallery.html">Дивитися фото</a>
 						<a class="btn ghost" href="facts.html">Читати факти</a>
 					</div>
-					<div class="ph hero-photo">
-						<img src="images/hero.jpg" alt="Руда кішка з бурштиновими очима" onerror="this.remove()">
-   </div>
+					<div class="face-box">
+						<div class="face" aria-hidden="true">
+							<span class="ear l"></span>
+							<span class="ear r"></span>
+							<div class="eyes">
+								<div class="eye">
+									<i class="pupil"></i>
+								</div>
+								<div class="eye">
+									<i class="pupil"></i>
+								</div>
+							</div>
+							<span class="nose"></span>
+						</div>
+						<p class="hint">Не вірите? Порухайте мишкою: ці очі стежать за вами.</p>
+					</div>
 				</div>
+				<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
+					<path d="M0,40 C240,90 480,0 720,30 C960,60 1200,90 1440,35 L1440,80 L0,80 Z" fill="#f6f9fc"/>
+				</svg>
 			</section>
+
+			<div class="marquee" aria-hidden="true">
+				<div>Муркотіння ✦ Грація ✦ Бурштинові очі ✦ М'які лапки ✦ Нічні мисливці ✦ Пухнасті хмаринки ✦ Муркотіння ✦ Грація ✦ Бурштинові очі ✦ М'які лапки ✦ Нічні мисливці ✦ Пухнасті хмаринки ✦ </div>
+			</div>
 
 			<section>
 				<div class="wrap">
 					<h2>Чому вони такі прекрасні</h2>
 					<p class="lead">Кожна деталь у кішки створена природою одночасно для полювання та елегантності.</p>
+					<p class="hint">Наведіть курсор на фото, щоб побачити його повністю. Клік відкриває фото на весь екран.</p>
 					<div class="grid">
 						<article class="card">
 							<div class="ph">
@@ -100,19 +124,19 @@
 					<h2>Коти в цифрах</h2>
 					<div class="stats">
 						<div class="stat">
-							<b>230</b>
+							<b data-count="230">230</b>
 							<p>кісточок у скелеті дорослої кішки</p>
 						</div>
 						<div class="stat">
-							<b>~16 год</b>
+							<b data-count="16" data-prefix="~" data-suffix=" год">~16 год</b>
 							<p>на добу коти проводять уві сні</p>
 						</div>
 						<div class="stat">
-							<b>100+</b>
+							<b data-count="100" data-suffix="+">100+</b>
 							<p>різних звуків уміє видавати кішка</p>
 						</div>
 						<div class="stat">
-							<b>9000</b>
+							<b data-count="9000">9000</b>
 							<p>років триває дружба котів і людей</p>
 						</div>
 					</div>
@@ -129,9 +153,9 @@
 				</div>
 			</section>
 
-			<section>
+			<section class="cta aurora">
 				<div class="wrap">
-					<h2>Куди вирушимо далі?</h2>
+					<h2>Готові закохатися?</h2>
 					<p class="lead">Дізнайтеся про найкрасивіші породи або відкрийте для себе факти, у які важко повірити.</p>
 					<div class="actions">
 						<a class="btn" href="breeds.html">Породи</a>

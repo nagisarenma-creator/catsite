@@ -1,7 +1,8 @@
 /* ===== Коти: синьо-помаранчева палітра ===== */
+@property --a{syntax:"<angle>";initial-value:0deg;inherits:false}
 :root{
-  --navy:#0e2742; --blue:#1d5fa8; --sky:#e8f1fa; --paper:#f6f9fc;
-  --orange:#f28a1e; --orange-dark:#c96a08; --ink:#14263a; --muted:#52667a;
+  --navy:#0e2742; --deep:#071a30; --blue:#1d5fa8; --sky:#e8f1fa; --paper:#f6f9fc;
+  --orange:#f28a1e; --gold:#ffd08a; --ink:#14263a; --muted:#52667a;
   --radius:18px;
   --head:"Playfair Display",Georgia,serif;
   --body:"Manrope",system-ui,sans-serif;
@@ -19,9 +20,13 @@ h2{font-size:clamp(1.7rem,3.6vw,2.6rem);margin-bottom:.6rem}
 h3{font-size:1.3rem;margin-bottom:.4rem}
 section{padding:clamp(3rem,8vw,6rem) 0}
 .lead{font-size:1.2rem;color:var(--muted);max-width:60ch}
+.hint{font-size:.98rem;color:var(--muted);margin-top:1rem}
+
+/* Смуга прокрутки */
+.progress{position:fixed;top:0;left:0;width:100%;height:4px;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--orange),var(--gold),var(--blue));z-index:100}
 
 /* Шапка і меню */
-header{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff}
+header{position:sticky;top:0;z-index:20;background:rgba(7,26,48,.92);backdrop-filter:blur(8px);color:#fff}
 .bar{display:flex;align-items:center;justify-content:space-between;padding:.8rem 0}
 .logo{font-family:var(--head);font-weight:700;font-size:1.4rem;text-decoration:none}
 .logo span{color:var(--orange)}
@@ -31,27 +36,83 @@ nav a:hover{background:rgba(255,255,255,.12)}
 nav a[aria-current="page"]{background:var(--orange);color:var(--navy)}
 #menu-toggle,.burger{display:none}
 
+/* Північне сяйво і зорі */
+.aurora{position:relative;overflow:hidden;isolation:isolate;color:#fff;
+  background:
+   radial-gradient(1.5px 1.5px at 12px 14px,rgba(255,255,255,.85),transparent),
+   radial-gradient(1px 1px at 76px 58px,rgba(255,255,255,.6),transparent),
+   radial-gradient(1.5px 1.5px at 100px 100px,rgba(255,208,138,.8),transparent),
+   var(--deep);
+  background-size:130px 130px,130px 130px,130px 130px,auto;
+  animation:stars 60s linear infinite}
+.aurora::before,.aurora::after{content:"";position:absolute;width:60vmax;height:60vmax;border-radius:50%;filter:blur(80px);opacity:.6;z-index:-1;animation:drift 16s ease-in-out infinite alternate}
+.aurora::before{background:radial-gradient(circle,#1d6fd1,transparent 65%);top:-32vmax;left:-18vmax}
+.aurora::after{background:radial-gradient(circle,#f28a1e,transparent 65%);bottom:-38vmax;right:-16vmax;animation-delay:-7s}
+@keyframes drift{to{transform:translate(12vmax,8vmax) scale(1.2)}}
+@keyframes stars{to{background-position:130px 130px,-130px 130px,130px -130px,0 0}}
+@keyframes floaty{50%{translate:0 -14px}}
+
 /* Головний екран */
-.hero{background:linear-gradient(135deg,var(--navy) 0%,#17497f 60%,var(--blue) 100%);color:#fff;padding:0;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;min-height:78vh;padding-block:3rem}
+.hero{padding:0}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;min-height:90vh;padding-block:3rem 7rem}
 .hero p{font-size:1.2rem;color:#d6e4f3;max-width:48ch;margin:1.2rem 0 2rem}
-.hero h1 em{font-style:italic;color:var(--orange)}
-.btn{display:inline-block;background:var(--orange);color:var(--navy);font-weight:800;text-decoration:none;padding:.9rem 1.8rem;border-radius:999px;transition:transform .2s,background .2s}
-.btn:hover{background:#ffa043;transform:translateY(-2px)}
+.wave{position:absolute;left:0;bottom:-1px;width:100%;height:80px;display:block}
+.w{display:inline-block;opacity:0;animation:wordIn .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--i)*.14s + .2s)}
+.w.shine{background:linear-gradient(90deg,var(--orange),var(--gold),var(--orange));background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;font-style:italic;
+  animation:wordIn .9s cubic-bezier(.2,.8,.2,1) forwards,shine 4s linear infinite;animation-delay:calc(var(--i)*.14s + .2s),0s}
+@keyframes wordIn{from{opacity:0;transform:translateY(46px) rotate(4deg)}to{opacity:1;transform:none}}
+@keyframes shine{to{background-position:200% 0}}
+.btn{display:inline-block;background:var(--orange);color:var(--navy);font-weight:800;text-decoration:none;padding:.9rem 1.8rem;border-radius:999px;transition:transform .2s,background .2s,box-shadow .2s}
+.btn:hover{background:#ffa043;transform:translateY(-3px);box-shadow:0 12px 30px rgba(242,138,30,.4)}
 button.btn{border:0;cursor:pointer;font-family:inherit;font-size:1rem}
 .btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);margin-left:.6rem}
-.btn.ghost:hover{background:rgba(255,255,255,.12)}
+.btn.ghost:hover{background:rgba(255,255,255,.12);box-shadow:none}
 .btn.blue{background:var(--blue);color:#fff}
-.hero-photo{aspect-ratio:4/5;border-radius:50% 50% var(--radius) var(--radius)/38% 38% var(--radius) var(--radius);border:6px solid var(--orange);box-shadow:0 30px 60px rgba(0,0,0,.35)}
 
-/* Рамки для фото: поки немає файлу, видно градієнт зі смайликом */
+/* Котяча мордочка з очима, що стежать */
+.face-box{text-align:center}
+.face-box .hint{color:#b9cde3}
+.face{position:relative;isolation:isolate;width:min(400px,78vw);aspect-ratio:1;margin-inline:auto;border-radius:50%;
+  background:radial-gradient(circle at 50% 38%,#1b4a80,#071a30 72%);
+  box-shadow:0 0 0 6px var(--orange),0 0 100px rgba(242,138,30,.45),inset 0 0 60px rgba(0,0,0,.6);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;animation:floaty 6s ease-in-out infinite}
+.ear{position:absolute;top:-9%;width:30%;height:30%;background:var(--orange);clip-path:polygon(0 100%,50% 0,100% 100%);z-index:-1}
+.ear::after{content:"";position:absolute;inset:16% 18% 0;background:var(--navy);clip-path:polygon(0 100%,50% 0,100% 100%)}
+.ear.l{left:7%;rotate:-20deg}
+.ear.r{right:7%;rotate:20deg}
+.eyes{display:flex;gap:10%;width:80%;justify-content:center}
+.eye{position:relative;flex:1;aspect-ratio:1;border-radius:50%;overflow:hidden;
+  background:radial-gradient(circle,#ffe27a 0,var(--orange) 48%,#8f4300 100%);
+  box-shadow:inset 0 0 22px rgba(0,0,0,.55),0 0 24px rgba(242,138,30,.6);animation:blink 6s infinite}
+.pupil{position:absolute;left:50%;top:50%;width:24%;height:80%;margin:-40% 0 0 -12%;background:#000;border-radius:50%;transform:translate(var(--px,0px),var(--py,0px))}
+.pupil::after{content:"";position:absolute;top:12%;left:22%;width:30%;height:16%;border-radius:50%;background:#fff;opacity:.9}
+@keyframes blink{0%,90%,100%{transform:scaleY(1)}94%{transform:scaleY(.06)}}
+.nose{width:9%;aspect-ratio:1.2;background:#ff8fa3;clip-path:polygon(0 0,100% 0,50% 100%);margin-top:7%}
+
+/* Стрічка */
+.marquee{background:var(--orange);color:var(--navy);overflow:hidden;white-space:nowrap;rotate:-1.5deg;margin:-2rem -3vw 0;position:relative;z-index:2;padding:.75rem 0;font-family:var(--head);font-weight:700;font-size:1.5rem;box-shadow:0 10px 30px rgba(14,39,66,.2)}
+.marquee div{display:inline-block;animation:marq 30s linear infinite}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* Рамки для фото */
 .ph{position:relative;overflow:hidden;background:linear-gradient(160deg,#2a6fb8,#f28a1e);display:grid;place-items:center}
 .ph::before{content:"🐱";font-size:3.5rem;opacity:.55;position:absolute}
-.ph img{position:relative;width:100%;height:100%;object-fit:cover}
+.ph img{position:relative;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1),filter .4s}
+.ph:has(img){cursor:zoom-in}
 
-/* Сітки і картки */
+/* Сітки і картки з обертовою рамкою */
 .grid{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:2rem}
-.card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid #dbe6f1}
+.card,.gallery figure{position:relative;overflow:hidden;border-radius:var(--radius);border:3px solid transparent;
+  background:linear-gradient(#fff,#fff) padding-box,linear-gradient(#dbe6f1,#dbe6f1) border-box;
+  transition:transform .15s ease-out,box-shadow .3s}
+.card:hover,.gallery figure:hover{
+  background:linear-gradient(#fff,#fff) padding-box,conic-gradient(from var(--a),var(--orange),var(--blue),var(--gold),var(--orange)) border-box;
+  animation:spin 3s linear infinite;box-shadow:0 28px 55px rgba(14,39,66,.28)}
+@keyframes spin{to{--a:360deg}}
+.card::after,.gallery figure::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.4),transparent 55%);opacity:0;transition:opacity .3s}
+.card:hover::after,.gallery figure:hover::after{opacity:1}
+.card:hover .ph img,.gallery figure:hover .ph img{transform:scale(1.1);filter:saturate(1.15)}
 .card .ph{aspect-ratio:4/3}
 .card .txt{padding:1.3rem 1.4rem 1.6rem}
 .card p{color:var(--muted)}
@@ -60,14 +121,23 @@ button.btn{border:0;cursor:pointer;font-family:inherit;font-size:1rem}
 .dark{background:var(--navy);color:#fff}
 .dark .lead,.dark p{color:#c9d9ea}
 .actions{margin-top:1.5rem;display:flex;gap:.8rem;flex-wrap:wrap}
+.cta{text-align:center}
+.cta .lead{margin-inline:auto;color:#d6e4f3}
+.cta .actions{justify-content:center}
+
+/* Поява при прокрутці */
+.reveal{opacity:0;translate:0 36px;
+  transition:opacity .7s var(--d,0s),translate .7s var(--d,0s),transform .15s ease-out,box-shadow .3s}
+.reveal.in{opacity:1;translate:0 0}
 
 /* Цифри */
 .stats{display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:2rem}
-.stat b{display:block;font-family:var(--head);font-size:3rem;color:var(--orange);line-height:1}
+.stat b{display:block;font-family:var(--head);font-size:3.2rem;color:var(--orange);line-height:1}
 
 /* Факти */
 .fact{display:grid;grid-template-columns:auto 1fr;gap:1.5rem;padding:1.6rem 0;border-bottom:1px solid #cfdceb;align-items:start}
-.fact .ico{font-size:2.4rem;width:4.2rem;height:4.2rem;display:grid;place-items:center;background:var(--orange);border-radius:50%}
+.fact .ico{font-size:2.4rem;width:4.2rem;height:4.2rem;display:grid;place-items:center;background:var(--orange);border-radius:50%;transition:transform .35s}
+.fact:hover .ico{transform:rotate(-14deg) scale(1.12)}
 .fact:nth-of-type(even) .ico{background:var(--blue)}
 .fact p{color:var(--muted);max-width:68ch}
 details{background:#fff;border:1px solid #dbe6f1;border-radius:14px;padding:1rem 1.3rem;margin-top:1rem}
@@ -76,21 +146,42 @@ details p{margin-top:.6rem;color:var(--muted)}
 
 /* Галерея */
 .gallery{columns:3 260px;column-gap:1rem;margin-top:2rem}
-.gallery figure{break-inside:avoid;margin-bottom:1rem;border-radius:var(--radius);overflow:hidden;background:#fff;border:1px solid #dbe6f1}
-.gallery .ph{min-height:220px}
-.gallery figure:nth-child(3n+1) .ph{aspect-ratio:3/4}
-.gallery figure:nth-child(3n+2) .ph{aspect-ratio:1}
-.gallery figure:nth-child(3n) .ph{aspect-ratio:4/3}
+.gallery figure{break-inside:avoid;margin-bottom:1rem}
+.gallery .ph img{height:auto}
+.gallery .ph:not(:has(img)){min-height:220px}
+.gallery figure:nth-child(3n+1) .ph:not(:has(img)){aspect-ratio:3/4}
+.gallery figure:nth-child(3n+2) .ph:not(:has(img)){aspect-ratio:1}
+.gallery figure:nth-child(3n) .ph:not(:has(img)){aspect-ratio:4/3}
 .gallery figcaption{padding:.7rem 1rem;font-size:.95rem;color:var(--muted)}
 
-.page-head{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;padding:clamp(3rem,7vw,5rem) 0}
+/* Верх внутрішніх сторінок */
+.page-head{padding:clamp(3.5rem,8vw,6rem) 0}
+.page-head h1{animation:wordIn .9s cubic-bezier(.2,.8,.2,1) both}
 .page-head p{color:#d6e4f3;max-width:56ch;margin-top:.8rem;font-size:1.15rem}
+.page-head .wrap{position:relative}
+.page-head .wrap::after{content:"🐾";position:absolute;right:0;top:50%;font-size:7rem;opacity:.2;transform:translateY(-50%) rotate(-15deg);animation:floaty 6s ease-in-out infinite}
 
-footer{background:var(--navy);color:#a9bdd3;text-align:center;padding:2rem 0;font-size:.95rem}
+footer{background:var(--deep);color:#a9bdd3;text-align:center;padding:2rem 0;font-size:.95rem}
 footer a{color:var(--orange)}
 
-/* ===== Анімація котів ===== */
-.cat-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:50}
+/* Велике фото при наведенні і на весь екран */
+.peek{position:fixed;left:0;top:0;z-index:70;pointer-events:none;opacity:0;scale:.92;background:#fff;padding:8px;border-radius:20px;
+  box-shadow:0 0 0 4px var(--orange),0 30px 80px rgba(7,26,48,.55);transition:opacity .2s,scale .2s}
+.peek.on{opacity:1;scale:1}
+.peek img{display:block;max-width:min(60vw,620px);max-height:70vh;border-radius:14px}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(5,16,30,.93);display:none;place-items:center;padding:2rem}
+.lb.on{display:grid}
+.lb figure{text-align:center;color:#fff}
+.lb img{max-width:92vw;max-height:78vh;border-radius:16px;box-shadow:0 0 0 4px var(--orange),0 0 80px rgba(242,138,30,.4);margin-inline:auto}
+.lb figcaption{margin-top:1rem;font-family:var(--head);font-size:1.2rem}
+.lb-btn{position:absolute;width:3.2rem;height:3.2rem;border:0;border-radius:50%;background:var(--orange);color:var(--navy);font-size:1.8rem;line-height:1;cursor:pointer;transition:transform .2s}
+.lb-btn:hover{transform:scale(1.12)}
+.lb-close{top:1rem;right:1rem}
+.lb-prev{left:1rem;top:50%}
+.lb-next{right:1rem;top:50%}
+
+/* Коти, що біжать */
+.cat-layer{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:60}
 .follow-cat{position:absolute;left:0;top:0;line-height:1;opacity:0;transition:opacity .4s;will-change:transform}
 .runner{position:absolute;left:0;line-height:1;will-change:transform;animation-timing-function:linear;animation-fill-mode:forwards}
 .runner.to-right{--flip:-1;animation-name:run-right}
@@ -105,16 +196,17 @@ footer a{color:var(--orange)}
 
 /* Планшети */
 @media (max-width:900px){
-  .hero .wrap{grid-template-columns:1fr;min-height:auto;text-align:center}
+  .hero .wrap{grid-template-columns:1fr;min-height:auto;text-align:center;padding-bottom:6rem}
   .hero p{margin-inline:auto}
-  .hero-photo{max-width:340px;margin:0 auto;order:-1;aspect-ratio:1}
+  .face{width:min(300px,70vw)}
   .btn.ghost{margin:.8rem 0 0}
+  .page-head .wrap::after{font-size:4.5rem}
 }
 /* Телефони */
 @media (max-width:720px){
   .burger{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:.6rem}
   .burger span{width:26px;height:3px;background:#fff;border-radius:2px;transition:.25s}
-  nav{position:absolute;left:0;right:0;top:100%;background:var(--navy);max-height:0;overflow:hidden;transition:max-height .3s}
+  nav{position:absolute;left:0;right:0;top:100%;background:var(--deep);max-height:0;overflow:hidden;transition:max-height .3s}
   nav ul{flex-direction:column;padding:.5rem 4% 1rem}
   #menu-toggle:checked ~ nav{max-height:320px}
   #menu-toggle:checked ~ .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
@@ -122,36 +214,11 @@ footer a{color:var(--orange)}
   #menu-toggle:checked ~ .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
   .bar{position:relative}
   .fact{grid-template-columns:1fr}
+  .marquee{font-size:1.2rem}
   body{font-size:1rem}
 }
 @media (prefers-reduced-motion:reduce){
-  *{transition:none!important;scroll-behavior:auto!important}
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .w{opacity:1}
   .cat-layer{display:none}
-}
-/* Плавное появление и 3D-отклик карточек */
-.card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  transform-style: preserve-3d;
-}
-.card:hover {
-  border-color: var(--orange);
-  box-shadow: 0 18px 35px rgba(14, 39, 66, 0.14);
-}
-.card .ph img {
-  transition: transform 0.5s ease;
-}
-.card:hover .ph img {
-  transform: scale(1.06);
-}
-
-/* Полоска прогресса чтения сверху */
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 4px;
-  background: var(--orange);
-  width: 0%;
-  z-index: 100;
-  transition: width 0.1s linear;
 }
