@@ -222,3 +222,51 @@ footer a{color:var(--orange)}
   .w{opacity:1}
   .cat-layer{display:none}
 }
+/* ===== Додатки: тема, форма, гра, кнопки ===== */
+body{transition:background .4s,color .4s}
+.bar{gap:.6rem}
+.theme-btn{border:0;background:rgba(255,255,255,.12);color:#fff;width:2.6rem;height:2.6rem;border-radius:50%;font-size:1.2rem;cursor:pointer;transition:transform .3s,background .2s;margin-left:.6rem}
+.theme-btn:hover{background:var(--orange);transform:rotate(25deg) scale(1.1)}
+.to-top{position:fixed;right:1.2rem;bottom:1.2rem;z-index:40;width:3rem;height:3rem;border:0;border-radius:50%;background:var(--orange);color:var(--navy);font-size:1.5rem;font-weight:800;cursor:pointer;opacity:0;pointer-events:none;translate:0 16px;transition:opacity .3s,translate .3s,transform .2s;box-shadow:0 10px 25px rgba(0,0,0,.3)}
+.to-top.on{opacity:1;pointer-events:auto;translate:0 0}
+.to-top:hover{transform:scale(1.12)}
+
+/* Темна тема */
+[data-theme="dark"]{--paper:#0a1626;--ink:#e6eef8;--muted:#9db3c9;--sky:#10233a}
+[data-theme="dark"] .card,[data-theme="dark"] .gallery figure{background:linear-gradient(#12263d,#12263d) padding-box,linear-gradient(#24415f,#24415f) border-box}
+[data-theme="dark"] .card:hover,[data-theme="dark"] .gallery figure:hover{background:linear-gradient(#12263d,#12263d) padding-box,conic-gradient(from var(--a),var(--orange),var(--blue),var(--gold),var(--orange)) border-box}
+[data-theme="dark"] details,[data-theme="dark"] .field input,[data-theme="dark"] .field select,[data-theme="dark"] .field textarea,[data-theme="dark"] .info{background:#12263d;border-color:#24415f;color:var(--ink)}
+[data-theme="dark"] .tag{background:#1a3a5e;color:var(--gold)}
+[data-theme="dark"] summary{color:var(--gold)}
+[data-theme="dark"] .fact{border-color:#24415f}
+[data-theme="dark"] .wave path{fill:#0a1626}
+
+/* Форма */
+.contact{display:grid;grid-template-columns:1.3fr .7fr;gap:2rem;margin-top:2rem;align-items:start}
+.field{margin-bottom:1.2rem}
+.field label{display:block;font-weight:700;margin-bottom:.35rem}
+.field input,.field select,.field textarea{width:100%;font:inherit;color:var(--ink);background:#fff;border:2px solid #cfdceb;border-radius:12px;padding:.8rem 1rem;transition:border-color .2s,box-shadow .2s}
+.field textarea{min-height:150px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 4px rgba(242,138,30,.25)}
+.field.bad input,.field.bad textarea{border-color:#d93a3a}
+.err{color:#d93a3a;font-size:.9rem;min-height:1.2em;margin-top:.25rem}
+.ok{display:none;background:#e3f6e8;color:#14532d;border-radius:12px;padding:1rem 1.2rem;margin-top:1rem;font-weight:600}
+.ok.on{display:block}
+.info{background:#fff;border:2px solid #dbe6f1;border-radius:var(--radius);padding:1.4rem}
+.info p{color:var(--muted);margin:.3rem 0 1rem}
+
+/* Гра */
+.game-bar{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin:1.5rem 0 1rem}
+.pill{background:var(--navy);color:#fff;border-radius:999px;padding:.4rem 1.1rem;font-weight:700}
+.pill b{color:var(--orange)}
+.arena{position:relative;height:min(60vh,460px);border-radius:var(--radius);overflow:hidden;border:4px solid var(--orange);
+  background:radial-gradient(circle at 30% 20%,#1d5fa8,#071a30)}
+.mouse{position:absolute;border:0;background:none;font-size:2.8rem;line-height:1;cursor:pointer;transition:left .25s,top .25s,transform .1s;filter:drop-shadow(0 6px 8px rgba(0,0,0,.4))}
+.mouse:active{transform:scale(.8)}
+.mouse[hidden]{display:none}
+.arena-msg{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#fff;font-family:var(--head);font-size:1.5rem;padding:1rem;pointer-events:none}
+
+@media (max-width:720px){
+  .contact{grid-template-columns:1fr}
+  .theme-btn{margin-left:auto}
+}

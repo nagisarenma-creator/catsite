@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+	<head>
+		<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+				<title>Контакти — Світ котів</title>
+				<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+				<meta name="description" content="Напишіть нам: питання, ідеї та історії про ваших котів">
+					<meta name="theme-color" content="#071a30">
+						<link rel="preconnect" href="https://fonts.googleapis.com">
+							<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+								<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+									<link rel="stylesheet" href="css/style.css">
+										<script src="js/script.js" defer=""></script>
+										<script src="js/extra.js" defer=""></script>
+									</head>
+	<body>
+		<header>
+			<div class="wrap bar">
+				<a class="logo" href="index.html">
+					Світ<span>Котів</span>
+				</a>
+				<input type="checkbox" id="menu-toggle" aria-label="Відкрити меню">
+					<label class="burger" for="menu-toggle">
+						<span></span>
+						<span></span>
+						<span></span>
+					</label>
+					<nav aria-label="Головне меню">
+						<ul>
+							<li>
+								<a href="index.html">Головна</a>
+							</li>
+							<li>
+								<a href="breeds.html">Породи</a>
+							</li>
+							<li>
+								<a href="facts.html">Факти</a>
+							</li>
+							<li>
+								<a href="gallery.html">Галерея</a>
+							</li>
+							<li>
+								<a href="game.html">Гра</a>
+							</li>
+							<li>
+								<a href="contacts.html" aria-current="page">Контакти</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+		</header>
+
+		<main>
+			<section class="page-head aurora">
+				<div class="wrap">
+					<h1>Контакти</h1>
+					<p>Є питання, ідея або історія про вашого кота? Напишіть нам, і ми обов'язково відповімо.</p>
+				</div>
+			</section>
+
+			<section>
+				<div class="wrap">
+					<h2>Напишіть нам</h2>
+					<div class="contact">
+						<form id="form" novalidate="">
+							<div class="field">
+								<label for="name">Ім'я</label>
+								<input id="name" name="name" type="text" autocomplete="name" required="">
+									<p class="err" id="e-name"></p>
+								</div>
+							<div class="field">
+								<label for="email">Електронна пошта</label>
+								<input id="email" name="email" type="email" autocomplete="email" required="">
+									<p class="err" id="e-email"></p>
+								</div>
+							<div class="field">
+								<label for="topic">Тема</label>
+								<select id="topic" name="topic">
+									<option>Питання про котів</option>
+									<option>Співпраця</option>
+									<option>Надіслати фото</option>
+								</select>
+							</div>
+							<div class="field">
+								<label for="msg">Повідомлення</label>
+								<textarea id="msg" name="msg" required=""></textarea>
+								<p class="err" id="e-msg"></p>
+							</div>
+							<button class="btn" type="submit">Надіслати</button>
+							<p class="ok" id="ok" role="status">Дякуємо! Повідомлення відправлено. Ми відповімо найближчим часом.</p>
+						</form>
+
+						<aside class="info">
+							<h3>Пошта</h3>
+							<p>hello@svitkotiv.example</p>
+							<h3>Соцмережі</h3>
+							<p>Instagram та Telegram: @svitkotiv</p>
+							<h3>Час відповіді</h3>
+							<p>Зазвичай протягом однієї доби.</p>
+						</aside>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="wrap">
+				<p>
+					Зроблено з любов'ю до котів · <a href="index.html">Нагору</a>
+				</p>
+			</div>
+		</footer>
+
+		<script>
+			(function () {
+			var form = document.getElementById('form');
+			var ok = document.getElementById('ok');
+			function check(id, errId, test, text) {
+			var el = document.getElementById(id);
+			var good = test(el.value.trim());
+			el.parentNode.classList.toggle('bad', !good);
+			document.getElementById(errId).textContent = good ? '' : text;
+			return good;
+			}
+			form.addEventListener('submit', function (e) {
+			e.preventDefault();
+			var a = check('name', 'e-name', function (v) { return v.length >= 2; }, "Введіть ім'я (мінімум 2 літери).");
+			var b = check('email', 'e-email', function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }, "Введіть правильну адресу пошти.");
+			var c = check('msg', 'e-msg', function (v) { return v.length >= 10; }, "Напишіть хоча б 10 символів.");
+			if (a && b && c) {
+			form.reset();
+			ok.classList.add('on');
+			} else {
+			ok.classList.remove('on');
+			}
+			});
+			})();
+		</script>
+	</body>
+</html>

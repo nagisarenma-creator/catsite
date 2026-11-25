@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Гра — Світ котів</title>
+	<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<meta name="description" content="Міні-гра: піймай мишку за 30 секунд">
+<meta name="theme-color" content="#071a30">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js" defer></script>
+<script src="js/extra.js" defer></script>
+<script src="js/game.js" defer></script>
+</head>
+<body>
+<header>
+ <div class="wrap bar">
+  <a class="logo" href="index.html">Світ<span>Котів</span></a>
+  <input type="checkbox" id="menu-toggle" aria-label="Відкрити меню">
+  <label class="burger" for="menu-toggle"><span></span><span></span><span></span></label>
+  <nav aria-label="Головне меню">
+   <ul>
+    <li><a href="index.html">Головна</a></li>
+    <li><a href="breeds.html">Породи</a></li>
+    <li><a href="facts.html">Факти</a></li>
+    <li><a href="gallery.html">Галерея</a></li>
+    <li><a href="game.html" aria-current="page">Гра</a></li>
+    <li><a href="contacts.html">Контакти</a></li>
+   </ul>
+  </nav>
+ </div>
+</header>
+
+<main>
+ <section class="page-head aurora">
+  <div class="wrap">
+   <h1>Піймай мишку</h1>
+   <p>Тридцять секунд, одна спритна мишка і ваші котячі рефлекси. Чим більше піймаєте, тим швидше вона тікає.</p>
+  </div>
+ </section>
+
+ <section>
+  <div class="wrap">
+   <h2>Готові до полювання?</h2>
+   <div class="game-bar">
+    <span class="pill">Піймано: <b id="score">0</b></span>
+    <span class="pill">Час: <b id="time">30</b></span>
+    <span class="pill">Рекорд: <b id="best">0</b></span>
+    <button class="btn" id="start" type="button">Почати гру</button>
+   </div>
+   <div class="arena" id="arena">
+    <button class="mouse" id="mouse" type="button" aria-label="Піймати мишку" hidden>🐭</button>
+    <p class="arena-msg" id="arena-msg">Натисніть «Почати гру» і клікайте на мишку</p>
+   </div>
+  </div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <p>Зроблено з любов'ю до котів · <a href="index.html">Нагору</a></p>
+ </div>
+</footer>
+</body>
+</html>
