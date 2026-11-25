@@ -3,24 +3,24 @@
 	<head>
 		<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-				<title>Породи — Світ котів</title>
-				<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-				<meta name="description" content="Найкрасивіші породи котів">
-					<link rel="preconnect" href="https://fonts.googleapis.com">
-						<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-							<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-								<link rel="stylesheet" href="css/style.css">
-									<script src="js/script.js" defer=""></script>
-									<meta name="theme-color" content="#071a30">
-										<meta property="og:title" content="Світ котів">
-											<meta property="og:description" content="Краса котів: фото, породи та незвичайні факти">
-												<script src="js/extra.js" defer=""></script>
-								</head>
+				<title>Учасники — Виставка котів</title>
+				<meta name="description" content="Шість учасників виставки котів: знайомтеся з кожним">
+					<meta name="theme-color" content="#071a30">
+						<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+							<link rel="preconnect" href="https://fonts.googleapis.com">
+								<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+									<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+										<link rel="stylesheet" href="css/style.css">
+											<script src="js/script.js" defer=""></script>
+											<script src="js/extra.js" defer=""></script>
+											<script src="js/confetti.js" defer=""></script>
+											<script src="js/show.js" defer=""></script>
+										</head>
 	<body>
 		<header>
 			<div class="wrap bar">
 				<a class="logo" href="index.html">
-					Світ<span>Котів</span>
+					Виставка<span>Котів</span>
 				</a>
 				<input type="checkbox" id="menu-toggle" aria-label="Відкрити меню">
 					<label class="burger" for="menu-toggle">
@@ -34,39 +34,50 @@
 								<a href="index.html">Головна</a>
 							</li>
 							<li>
-								<a href="breeds.html" aria-current="page">Породи</a>
+								<a href="breeds.html" aria-current="page">Учасники</a>
 							</li>
 							<li>
 								<a href="facts.html">Факти</a>
 							</li>
 							<li>
-								<a href="gallery.html">Галерея</a>
+								<a href="gallery.html">Зал виставки</a>
 							</li>
 							<li>
 								<a href="game.html">Гра</a>
 							</li>
 							<li>
-								<a href="contacts.html">Контакти</a>
+								<a href="contacts.html">Реєстрація</a>
 							</li>
 						</ul>
 					</nav>
 				</div>
 		</header>
 
+		<section class="alt">
+			<div class="wrap">
+				<h2>Голосування глядачів</h2>
+				<p class="lead">Оберіть свого улюбленця: натисніть «Голосувати» під його фото. Кожен глядач має один голос.</p>
+				<div class="results" id="results"></div>
+				<p class="total" id="total"></p>
+				<button class="link-btn" id="reset" type="button">Скинути голосування</button>
+			</div>
+		</section>
+
 		<main>
 			<section class="page-head aurora">
 				<div class="wrap">
-					<h1>Породи</h1>
-					<p>Шість котів, у кожного з яких свій характер і своя краса.</p>
+					<h1>Учасники виставки</h1>
+					<p>Шість котів, у кожного з яких свій номер на рингу, свій характер і своя краса.</p>
 				</div>
 			</section>
 
 			<section>
 				<div class="wrap">
-					<h2>Наші улюбленці</h2>
+					<h2>Знайомтеся з учасниками</h2>
 					<p class="hint">Наведіть курсор на фото, щоб побачити його повністю.</p>
 					<div class="grid">
 						<article class="card">
+							<span class="num">№ 1</span>
 							<div class="ph">
 								<img src="images/maine.jpg" alt="Мейн-кун" loading="lazy" onerror="this.remove()">
 							</div>
@@ -77,6 +88,7 @@
 							</div>
 						</article>
 						<article class="card">
+							<span class="num">№ 2</span>
 							<div class="ph">
 								<img src="images/siam.jpg" alt="Сіамська кішка" loading="lazy" onerror="this.remove()">
 							</div>
@@ -87,6 +99,7 @@
 							</div>
 						</article>
 						<article class="card">
+							<span class="num">№ 3</span>
 							<div class="ph">
 								<img src="images/bengal.jpg" alt="Бенгальська кішка" loading="lazy" onerror="this.remove()">
 							</div>
@@ -97,6 +110,7 @@
 							</div>
 						</article>
 						<article class="card">
+							<span class="num">№ 4</span>
 							<div class="ph">
 								<img src="images/persian.jpg" alt="Перська кішка" loading="lazy" onerror="this.remove()">
 							</div>
@@ -107,6 +121,7 @@
 							</div>
 						</article>
 						<article class="card">
+							<span class="num">№ 5</span>
 							<div class="ph">
 								<img src="images/sphynx.jpg" alt="Кішка породи сфінкс" loading="lazy" onerror="this.remove()">
 							</div>
@@ -117,6 +132,7 @@
 							</div>
 						</article>
 						<article class="card">
+							<span class="num">№ 6</span>
 							<div class="ph">
 								<img src="images/british.jpg" alt="Британська кішка" loading="lazy" onerror="this.remove()">
 							</div>
@@ -134,7 +150,7 @@
 		<footer>
 			<div class="wrap">
 				<p>
-					Зроблено з любов'ю до котів · <a href="index.html">Нагору</a>
+					Виставка котів · Зроблено з любов'ю до котів · <a href="index.html">Нагору</a>
 				</p>
 			</div>
 		</footer>

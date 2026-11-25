@@ -3,24 +3,25 @@
 	<head>
 		<meta charset="UTF-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-				<title>Головна — Світ котів</title>
-				<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-				<meta name="description" content="Краса котів: фото, породи та незвичайні факти">
-					<link rel="preconnect" href="https://fonts.googleapis.com">
-						<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-							<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-								<link rel="stylesheet" href="css/style.css">
-									<script src="js/script.js" defer=""></script>
-									<meta name="theme-color" content="#071a30">
-										<meta property="og:title" content="Світ котів">
-											<meta property="og:description" content="Краса котів: фото, породи та незвичайні факти">
-												<script src="js/extra.js" defer=""></script>
-								</head>
+				<title>Головна — Виставка котів</title>
+				<meta name="description" content="Виставка котів: знайомтеся з учасниками, дізнайтеся, як працюють судді, та зареєструйте свого улюбленця">
+					<meta name="theme-color" content="#071a30">
+						<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+							<link rel="preconnect" href="https://fonts.googleapis.com">
+								<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+									<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+										<link rel="stylesheet" href="css/style.css">
+											<script src="js/script.js" defer=""></script>
+											<script src="js/extra.js" defer=""></script>
+											<script src="js/confetti.js" defer=""></script>
+											<script src="js/quiz.js" defer=""></script>
+											<script src="js/show.js" defer></script>
+										</head>
 	<body>
 		<header>
 			<div class="wrap bar">
 				<a class="logo" href="index.html">
-					Світ<span>Котів</span>
+					Виставка<span>Котів</span>
 				</a>
 				<input type="checkbox" id="menu-toggle" aria-label="Відкрити меню">
 					<label class="burger" for="menu-toggle">
@@ -34,19 +35,19 @@
 								<a href="index.html" aria-current="page">Головна</a>
 							</li>
 							<li>
-								<a href="breeds.html">Породи</a>
+								<a href="breeds.html">Учасники</a>
 							</li>
 							<li>
 								<a href="facts.html">Факти</a>
 							</li>
 							<li>
-								<a href="gallery.html">Галерея</a>
+								<a href="gallery.html">Зал виставки</a>
 							</li>
 							<li>
 								<a href="game.html">Гра</a>
 							</li>
 							<li>
-								<a href="contacts.html">Контакти</a>
+								<a href="contacts.html">Реєстрація</a>
 							</li>
 						</ul>
 					</nav>
@@ -58,14 +59,15 @@
 				<div class="wrap">
 					<div>
 						<h1>
-							<span class="w" style="--i:0">Грація,</span>
-							<span class="w" style="--i:1">яку</span>
-							<span class="w shine" style="--i:2">неможливо</span>
-							<span class="w" style="--i:3">повторити</span>
+							<span class="w" style="--i:0">Виставка,</span>
+							<span class="w" style="--i:1">де</span>
+							<span class="w shine" style="--i:2">кожен</span>
+							<span class="w" style="--i:3">кіт</span>
+							<span class="w" style="--i:4">— зірка</span>
 						</h1>
-						<p>Коти живуть поруч із людьми майже десять тисяч років і досі залишаються загадкою. Давайте роздивимося їх уважніше.</p>
-						<a class="btn" href="gallery.html">Дивитися фото</a>
-						<a class="btn ghost" href="facts.html">Читати факти</a>
+						<p>Шість найкрасивіших учасників, суворі судді та глядачі, які не можуть відвести погляд. Познайомтеся з котами ще до початку показу.</p>
+						<a class="btn" href="breeds.html">Побачити учасників</a>
+						<a class="btn ghost" href="contacts.html">Зареєструвати кота</a>
 					</div>
 					<div class="face-box">
 						<div class="face" aria-hidden="true">
@@ -81,7 +83,7 @@
 							</div>
 							<span class="nose"></span>
 						</div>
-						<p class="hint">Не вірите? Порухайте мишкою: ці очі стежать за вами.</p>
+						<p class="hint">Головний суддя вже стежить за вами: порухайте мишкою.</p>
 					</div>
 				</div>
 				<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true">
@@ -90,12 +92,131 @@
 			</section>
 
 			<div class="marquee" aria-hidden="true">
-				<div>Муркотіння ✦ Грація ✦ Бурштинові очі ✦ М'які лапки ✦ Нічні мисливці ✦ Пухнасті хмаринки ✦ Муркотіння ✦ Грація ✦ Бурштинові очі ✦ М'які лапки ✦ Нічні мисливці ✦ Пухнасті хмаринки ✦ </div>
+				<div>Чемпіони ✦ Ринг ✦ Нагороди ✦ Бурштинові очі ✦ Шовкова шерсть ✦ Королівська постава ✦ Чемпіони ✦ Ринг ✦ Нагороди ✦ Бурштинові очі ✦ Шовкова шерсть ✦ Королівська постава ✦ </div>
 			</div>
 
 			<section>
 				<div class="wrap">
-					<h2>Чому вони такі прекрасні</h2>
+					<h2>Як проходить виставка</h2>
+					<p class="lead">Три етапи, від знайомства з учасниками до нагородження переможців.</p>
+					<div class="steps">
+						<div class="step">
+							<h3>Знайомство</h3>
+							<p>Глядачі оглядають учасників і читають про кожну породу.</p>
+						</div>
+						<div class="step">
+							<h3>Огляд суддів</h3>
+							<p>Судді оцінюють очі, шерсть і рух кожного кота на рингу.</p>
+						</div>
+						<div class="step">
+							<h3>Нагородження</h3>
+							<p>Оголошують переможців у кожній категорії та головного чемпіона.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="wrap">
+					<h2>До відкриття виставки</h2>
+					<p class="lead">Відлік до першого виходу котів на ринг.</p>
+					<div class="count" id="count" data-date="2026-12-20T12:00:00">
+						<div>
+							<b id="cd-d">0</b>
+							<span>днів</span>
+						</div>
+						<div>
+							<b id="cd-h">0</b>
+							<span>годин</span>
+						</div>
+						<div>
+							<b id="cd-m">0</b>
+							<span>хвилин</span>
+						</div>
+						<div>
+							<b id="cd-s">0</b>
+							<span>секунд</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="wrap">
+					<h2>Програма дня</h2>
+					<ul class="prog">
+						<li>
+							<time>10:00</time>
+							<p>Відкриття виставки та реєстрація учасників.</p>
+						</li>
+						<li>
+							<time>12:00</time>
+							<p>Огляд суддів: очі, шерсть і постава кожного кота.</p>
+						</li>
+						<li>
+							<time>15:00</time>
+							<p>Показ у рингу та голосування глядачів.</p>
+						</li>
+						<li>
+							<time>17:00</time>
+							<p>Нагородження переможців і головного чемпіона.</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<div class="wrap">
+					<h2>До відкриття виставки</h2>
+					<p class="lead">Відлік до першого виходу котів на ринг.</p>
+					<div class="count" id="count" data-date="2026-12-20T12:00:00">
+						<div>
+							<b id="cd-d">0</b>
+							<span>днів</span>
+						</div>
+						<div>
+							<b id="cd-h">0</b>
+							<span>годин</span>
+						</div>
+						<div>
+							<b id="cd-m">0</b>
+							<span>хвилин</span>
+						</div>
+						<div>
+							<b id="cd-s">0</b>
+							<span>секунд</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section>
+				<div class="wrap">
+					<h2>Програма дня</h2>
+					<ul class="prog">
+						<li>
+							<time>10:00</time>
+							<p>Відкриття виставки та реєстрація учасників.</p>
+						</li>
+						<li>
+							<time>12:00</time>
+							<p>Огляд суддів: очі, шерсть і постава кожного кота.</p>
+						</li>
+						<li>
+							<time>15:00</time>
+							<p>Показ у рингу та голосування глядачів.</p>
+						</li>
+						<li>
+							<time>17:00</time>
+							<p>Нагородження переможців і головного чемпіона.</p>
+						</li>
+					</ul>
+				</div>
+			</section>
+			
+			<section class="alt">
+				<div class="wrap">
+					<h2>Що оцінюють судді</h2>
 					<p class="lead">Кожна деталь у кішки створена природою одночасно для полювання та елегантності.</p>
 					<p class="hint">Наведіть курсор на фото, щоб побачити його повністю. Клік відкриває фото на весь екран.</p>
 					<div class="grid">
@@ -164,13 +285,43 @@
 				</div>
 			</section>
 
+			<section>
+				<div class="wrap">
+					<h2>Який ви кіт на виставці?</h2>
+					<p class="lead">Три швидких питання, і ми підкажемо, на кого з наших учасників ви схожі.</p>
+					<div class="quiz" id="quiz"></div>
+				</div>
+			</section>
+
+			<section class="alt">
+				<div class="wrap">
+					<h2>Часті питання</h2>
+					<details>
+						<summary>Як зареєструвати свого кота?</summary>
+						<p>Перейдіть на сторінку «Реєстрація», заповніть форму та розкажіть про вашого улюбленця. Ми зв'яжемося з вами.</p>
+					</details>
+					<details>
+						<summary>Чи можна просто прийти подивитися?</summary>
+						<p>Так, глядачі завжди вітаються. Можна оглянути учасників і проголосувати за свого фаворита.</p>
+					</details>
+					<details>
+						<summary>Як обирають переможців?</summary>
+						<p>Судді оцінюють очі, шерсть і постава кожного кота, а глядачі додають свій голос у голосуванні.</p>
+					</details>
+					<details>
+						<summary>Чи можна голосувати кілька разів?</summary>
+						<p>Ні, кожен глядач має один голос. Результати оновлюються одразу.</p>
+					</details>
+				</div>
+			</section>
+			
 			<section class="cta aurora">
 				<div class="wrap">
-					<h2>Готові закохатися?</h2>
-					<p class="lead">Дізнайтеся про найкрасивіші породи або відкрийте для себе факти, у які важко повірити.</p>
+					<h2>Ваш кіт теж може стати зіркою</h2>
+					<p class="lead">Познайомтеся з учасниками або подайте заявку на участь у наступній виставці.</p>
 					<div class="actions">
-						<a class="btn" href="breeds.html">Породи</a>
-						<a class="btn blue" href="facts.html">Незвичайні факти</a>
+						<a class="btn" href="breeds.html">Учасники</a>
+						<a class="btn blue" href="contacts.html">Подати заявку</a>
 					</div>
 				</div>
 			</section>
@@ -179,7 +330,7 @@
 		<footer>
 			<div class="wrap">
 				<p>
-					Зроблено з любов'ю до котів · <a href="index.html">Нагору</a>
+					Виставка котів · Зроблено з любов'ю до котів · <a href="index.html">Нагору</a>
 				</p>
 			</div>
 		</footer>
